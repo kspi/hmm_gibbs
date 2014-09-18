@@ -1,0 +1,5 @@
+#!/bin/bash
+out=$1
+shift
+head -n1 $1 > $out
+parallel -j1 tail -n+2 {} ::: $@ >> $out && rm $@
